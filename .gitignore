@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+API/node_modules/
+petfinal/node_modules/
+dist/
+.env
+API/.env
