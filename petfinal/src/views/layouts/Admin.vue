@@ -1,11 +1,1 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import Nav from "@/components/NavAdmin.vue";
-</script>
-
-<template>
-  <Nav></Nav>
-  <div>
-    <RouterView />
-  </div>
-</template>
+<template>Admin Layout<router-view/></template>

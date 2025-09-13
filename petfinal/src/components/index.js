@@ -1,8 +1,9 @@
-import Vue from 'vue';
-import Admod from './Admod.vue';
-import Nav from './Nav.vue';
-import Loading from './Loading.vue';
+import { BButton, BModal, BFormGroup, BFormRadioGroup, BLink } from 'bootstrap-vue-next'
 
-Vue.defineComponent("ad-mod", Admod);
-Vue.defineComponent("my-nav", Nav);
-Vue.defineComponent("loading", Loading);
+export default function registerGlobalComponents(app) {
+  app.component('BButton', BButton)
+  app.component('BModal', BModal)
+  app.component('BFormGroup', BFormGroup)
+  app.component('BFormRadioGroup', BFormRadioGroup)
+  app.component('BLink', BLink)
+}

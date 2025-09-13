@@ -32,8 +32,8 @@
                 <div class="card-body">
                   <form @submit.prevent="sendResetLink">
                     <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" v-model="state.email" class="form-control" id="email" readonly>
+                      <label for="changepass-email">Email</label>
+                      <input type="email" v-model="state.email" class="form-control" id="changepass-email" readonly>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 mt-3">Gửi yêu cầu</button>
                   </form>

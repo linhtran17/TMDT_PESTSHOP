@@ -34,11 +34,11 @@
           <div v-if="errorUsername" class="error">{{ errorUsername }}</div>
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email(*)</label>
+          <label for="signup-email" class="form-label">Email(*)</label>
           <input
             type="email"
             class="form-control"
-            id="email"
+            id="signup-email"
             placeholder="user123@example.com"
             v-model="userProps.email"
             required
@@ -49,11 +49,11 @@
           <div v-if="errorEmail" class="error">{{ errorEmail }}</div>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password(*)</label>
+          <label for="signup-password" class="form-label">Password(*)</label>
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="signup-password"
             placeholder="********"
             v-model="userProps.password"
             required

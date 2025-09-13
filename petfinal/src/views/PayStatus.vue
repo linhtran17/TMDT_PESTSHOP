@@ -1,23 +1,37 @@
+<!-- src/views/PayStatus.vue -->
 <template>
-  <div
-    class="container pay d-flex flex-column justify-content-center align-items-center w-100 text-center"
-  >
-    <div v-if="route.query?.code === '00'" class="success-message">
-      <img src="/src/assets/icons/checked.png" alt="Thanh toán thành công" class="success-icon" />
+  <div class="container pay d-flex flex-column justify-content-center align-items-center w-100 text-center">
+    <div v-if="isSuccess" class="success-message">
+      <img :src="successIcon" alt="Thanh toán thành công" class="success-icon" />
       <h2 class="message-text">Giao dịch thành công!</h2>
     </div>
+
     <div v-else class="error-message">
-        <img src="/src/assets/icons/remove.png" alt="Thanh toán thất bại" class="error-icon" />
-        <h2 class="message-text">Giao dịch thất bại!</h2>
+      <img :src="errorIcon" alt="Thanh toán thất bại" class="error-icon" />
+      <h2 class="message-text">Giao dịch thất bại!</h2>
     </div>
-    <b-link href="/" class="return-home">Quay lại trang chủ</b-link>
+
+    <RouterLink to="/" class="return-home">Quay lại trang chủ</RouterLink>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
+import { computed } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
 
-const route = useRoute();
+// Import ảnh để Vite bundle đúng
+import successIcon from '@/assets/icons/checked.png'
+import errorIcon from '@/assets/icons/remove.png'
+
+const route = useRoute()
+
+// route.query luôn là object; code có thể là string hoặc array -> chuẩn hoá về string
+const code = computed(() => {
+  const c = route.query?.code
+  return Array.isArray(c) ? c[0] : c
+})
+
+const isSuccess = computed(() => code.value === '00')
 </script>
 
 <style lang="scss">
@@ -41,23 +55,23 @@ const route = useRoute();
       height: 100px;
       margin-bottom: 20px;
     }
+
     .error-icon {
-    width: 80px; 
-    height: 80px;
-    margin-bottom: 20px;
-  }
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
 
     .message-text {
       font-family: "Poppins", sans-serif;
       font-size: 1.8rem;
       font-weight: 600;
-      color: #28a745; 
+      color: #28a745; // màu cho success
     }
   }
 
   .error-message .message-text {
-    color: #dc3545; 
-    
+    color: #dc3545; // màu cho error
   }
 
   .return-home {
@@ -73,7 +87,7 @@ const route = useRoute();
 
     &:hover {
       background-color: #007bff;
-      color: white;
+      color: #fff;
     }
   }
 }

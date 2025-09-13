@@ -13,7 +13,7 @@
    
   <script setup>
   import ProductItem from "@/views/product/ProductItem.vue";
-  import { onMounted, reactive, defineProps } from "vue";
+  import { onMounted, reactive } from "vue";
 
   const props = defineProps(["api", "title"]);
  

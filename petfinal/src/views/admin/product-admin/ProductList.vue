@@ -73,6 +73,7 @@ import { useRoute, useRouter } from "vue-router";
 import Loading from "@/components/Loading.vue";
 import ToolSearchBase from "@/components/ToolSearchBase.vue";
 import Pagination from "@/components/Pagination.vue";
+import { formatCurrency } from '@/utils'
 
 const router = useRouter();
 const route = useRoute();

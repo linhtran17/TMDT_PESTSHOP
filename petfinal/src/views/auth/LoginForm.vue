@@ -18,11 +18,11 @@
       </div>
       <div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email(*):</label>
+          <label for="loginform-email" class="form-label">Email(*):</label>
           <input
             type="email"
             class="form-control"
-            id="email"
+            id="loginform-email"
             placeholder="user123@example.com"
             v-model="userProps.email"
             required
@@ -34,11 +34,11 @@
           <div v-if="errorEmail" class="error">{{ errorEmail }}</div>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password(*):</label>
+          <label for="loginform-password" class="form-label">Password(*):</label>
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="loginform-password"
             placeholder="********"
             v-model="userProps.password"
             required

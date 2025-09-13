@@ -189,7 +189,7 @@
 </template>
 
 <script setup>
-import { defineProps, reactive } from "vue";
+import {  reactive } from "vue";
 import dashboardApi from "@/api/dashboard.api";
 import { notify } from "@kyvg/vue3-notification";
 import Loading from "@/components/Loading.vue";

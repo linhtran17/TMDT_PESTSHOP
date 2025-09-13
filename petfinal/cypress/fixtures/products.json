@@ -1,0 +1,7 @@
+{
+  "total": 2, "totalPages": 1, "currentPage": 1,
+  "list": [
+    { "id": 1, "name": "Thức ăn chó cao cấp", "price": 500000 },
+    { "id": 2, "name": "Bóng đồ chơi mèo", "price": 100000 }
+  ]
+}

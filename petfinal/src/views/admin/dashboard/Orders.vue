@@ -128,6 +128,8 @@ import Loading from "@/components/Loading.vue";
 import dashboardApi from "@/api/dashboard.api";
 import OrderDetail from "./OrderDetails.vue";
 import { statusOptions } from "@/utils";
+import { formatDate, formatCurrency } from '@/utils'
+
 
 const statusDic = {};
 statusOptions.forEach((element) => {

@@ -1,55 +1,44 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import './assets/main.css'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import Notifications from '@kyvg/vue3-notification'
-import GoogleSignInPlugin from "vue3-google-signin"
-
+// src/main.js
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import moment from 'moment'
-
 import App from './App.vue'
 import router from './router'
-import "@/components/index"
+import { createPinia } from 'pinia'
+import Notifications from '@kyvg/vue3-notification'
 
 
-const gAuthOptions = { clientId: '205292167077-8vg46506fa2k1n8npbjtfr3t00em42fc.apps.googleusercontent.com', scope: 'profile email' };
+import { formatCurrency, formatDate, formatDateTime, formatVND } from '@/utils'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
+import GoogleSignInPlugin from 'vue3-google-signin'
+import { useAuth } from '@/stores/auth'
 
 const app = createApp(App)
-app.use(GoogleSignInPlugin, gAuthOptions)
-// Cài đặt các plugin
-app.use(BootstrapVue)
-app.use(IconsPlugin)
-app.use(Notifications)
+const pinia = createPinia()
 
-app.use(createPinia())
-app.use(router)
-// // Khôi phục trạng thái đăng nhập
-// const auth = useAuth();
-// auth.restoreSession().then(() => {
-//   console.log('Ứng dụng đã khởi động với trạng thái auth:', auth.user, auth.token);
-//   app.mount('#app');
-// });
+app.use(router).use(pinia).use(Notifications)
 
-// Thêm phương thức formatCurrency toàn cục
-app.config.globalProperties.formatCurrency = function formatCurrency(price) {
-    if (price) {
-        return new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(price)
-    }
-    return price
+// Bật Google Sign-In nếu có CLIENT ID
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+if (clientId) {
+  app.use(GoogleSignInPlugin, { clientId })
+} else {
+  console.warn('[GoogleSignIn] VITE_GOOGLE_CLIENT_ID is missing → Google login disabled.')
 }
 
-// Thêm phương thức formatDate toàn cục
-app.config.globalProperties.formatDate = function formatDate(valString) {
-    if (valString) {
-        return moment(valString).format("HH:mm DD/MM/YYYY")
-    }
-    return ""
+ window.__router__ = router
+// chỉ gọi /auth/me nếu đã có token
+useAuth().bootstrap()
+app.mixin({
+  methods: { formatCurrency, formatDate, formatDateTime, formatVND }
+})
+app.config.globalProperties.$formatCurrency = formatCurrency; // opt
+
+// optional: log error global
+app.config.errorHandler = (err, vm, info) => {
+  console.error('[Vue errorHandler]', err, info)
 }
 
-// Khởi tạo ứng dụng Vue
 app.mount('#app')
-
-// Nhúng các script của Bootstrap
-import "bootstrap/dist/js/bootstrap.js"

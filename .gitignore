@@ -9,3 +9,6 @@ API/.env
 # macOS
 .DS_Store
 API/.DS_Store
+petfinal/yarn.lock
+/petfinal/cypress.env.json
+.env*
