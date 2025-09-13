@@ -1,0 +1,93 @@
+{
+	"id": "d2709f8c-b25b-4630-8c92-7c93dc99f5a5",
+	"name": "PETSHOP",
+	"values": [
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "EMAIL_ADMIN",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "PASSWORD_ADMIN",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "EMAIL_USER",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "PASSWORD_USER",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ROLE",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN_ADMIN",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN_USER",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "PRODUCT_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CAT_PRO_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CAT_PET_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "PICTURE_URL",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-09-13T03:56:44.971Z",
+	"_postman_exported_using": "Postman/11.62.0"
+}

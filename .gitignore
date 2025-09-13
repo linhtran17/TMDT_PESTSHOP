@@ -5,3 +5,7 @@ petfinal/node_modules/
 dist/
 .env
 API/.env
+
+# macOS
+.DS_Store
+API/.DS_Store
